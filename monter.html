@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONTER - Instalacje, Klimatyzacja, Ogrzewanie | Bochnia</title>
+    <meta name="description" content="Firma MONTER - profesjonalne usługi instalacyjne, klimatyzacja, ogrzewanie, wentylacja. Doświadczenie od 1992 roku. Bochnia, Małopolska.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover {
+            color: #1f2937;
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu span {
+            width: 28px;
+            height: 3px;
+            background: #2563eb;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1581094289675-4b85b5c8e52d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .floating-1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #3b82f6;
+            opacity: 0.2;
+            animation-delay: 0s;
+        }
+        
+        .floating-2 {
+            top: 10rem;
+            right: 5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #7c3aed;
+            opacity: 0.3;
+            animation-delay: -2s;
+        }
+        
+        .floating-3 {
+            bottom: 10rem;
+            left: 5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: #ec4899;
+            opacity: 0.25;
+            animation-delay: -4s;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(239, 246, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: #2563eb;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease 0.2s forwards;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease 0.4s forwards;
+        }
+        
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #1f2937 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h1 .accent-text {
+            color: #2563eb;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease 0.6s forwards;
+        }
+        
+        .hero-subtitle .accent {
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease 0.8s forwards;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #1f2937;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .btn-secondary:hover {
+            background: #f9fafb;
+            transform: translateY(-5px);
+            border-color: #2563eb;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #9ca3af;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator i {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: rgba(239, 246, 255, 0.8);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title .gradient-text {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title p {
+            color: #6b7280;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: white;
+            border-radius: 25px;
+            border: 1px solid #f3f4f6;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+        
+        .stat-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-icon {
+            color: #2563eb;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .about-visual {
+            position: relative;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+        
+        .floating-card {
+            position: absolute;
+            bottom: -1.5rem;
+            left: -1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .floating-card-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .floating-card-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .floating-card-text h4 {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .floating-card-text p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Services Section */
+        .services {
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 30px;
+            border: 1px solid #f3f4f6;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #2563eb;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+        }
+        
+        .service-icon.blue { background: linear-gradient(135deg, #3b82f6, #06b6d4); }
+        .service-icon.orange { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .service-icon.indigo { background: linear-gradient(135deg, #6366f1, #3b82f6); }
+        .service-icon.teal { background: linear-gradient(135deg, #14b8a6, #10b981); }
+        .service-icon.yellow { background: linear-gradient(135deg, #eab308, #f59e0b); }
+        .service-icon.purple { background: linear-gradient(135deg, #a855f7, #ec4899); }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+        
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-link {
+            transform: translateX(0.5rem);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background: linear-gradient(135deg, #eff6ff 0%, #f3e8ff 100%);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(124, 58, 237, 0.9));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.2);
+        }
+        
+        .portfolio-overlay-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay-icon {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+        }
+        
+        .contact-form {
+            background: linear-gradient(135deg, #eff6ff, #f3e8ff);
+            padding: 3.5rem;
+            border-radius: 30px;
+            border: 1px solid #f3f4f6;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1f2937;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #374151;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            color: #1f2937;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9ca3af;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .contact-info {
+            padding: 2rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #f3f4f6;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .contact-icon.blue { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+        .contact-icon.purple { background: linear-gradient(135deg, #7c3aed, #ec4899); }
+        .contact-icon.green { background: linear-gradient(135deg, #059669, #2563eb); }
+        .contact-icon.orange { background: linear-gradient(135deg, #ea580c, #dc2626); }
+        .contact-icon.teal { background: linear-gradient(135deg, #0d9488, #06b6d4); }
+        
+        .contact-details h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            height: 350px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #374151;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            line-height: 2;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+        
+        /* Call Button */
+        .call-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            z-index: 1000;
+            animation: pulseGlow 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .call-button:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(16, 185, 129, 0.6);
+            }
+            100% {
+                box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.5;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 0 1rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .call-button {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-card,
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .about-visual {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">MONTER</a>
+            <ul class="nav-links">
+                <li><a href="#home">Start</a></li>
+                <li><a href="#about">O nas</a></li>
+                <li><a href="#services">Oferta</a></li>
+                <li><a href="#portfolio">Realizacje</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element floating-1"></div>
+            <div class="floating-element floating-2"></div>
+            <div class="floating-element floating-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Od 1992 roku na rynku</span>
+                </div>
+                <h1>
+                    <span class="gradient-text">Profesjonalne</span><br>
+                    <span class="gradient-text">Instalacje</span><br>
+                    <span class="accent-text">MONTER</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Tworzymy nowoczesne rozwiązania instalacyjne dla Twojego komfortu. 
+                    <span class="accent">Klimatyzacja, ogrzewanie, wentylacja</span> 
+                    i wszystko co potrzebne do idealnego domu.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span>Zapytaj o wycenę</span>
+                    </a>
+                    <a href="tel:+48146118311" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        <span>014 611 83 11</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <p>Przewiń w dół</p>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-badge">O firmie</div>
+                <h2>
+                    Zaufanie budowane 
+                    <span class="gradient-text">dekadami</span>
+                </h2>
+                <p>Ponad 30 lat doświadczenia w tworzeniu idealnych rozwiązań instalacyjnych dla naszych klientów</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Historia sukcesu od 1992 roku</h3>
+                    
+                    <p>Firma Usługowo-Handlowa "MONTER" to synonim niezawodności i profesjonalizmu w branży instalacyjnej. Przez ponad trzy dekady realizujemy marzenia naszych klientów o idealnym komforcie w ich domach i biurach.</p>
+                    
+                    <p>Nasza bogata oferta obejmuje około 10 tysięcy produktów najlepszych światowych producentów. Każde urządzenie objęte jest pełną gwarancją, a nasze usługi wykonywane są zgodnie z najwyższymi standardami branżowymi.</p>
+
+                    <p>Jesteśmy dumni członkami Małopolskiej Okręgowej Izby Inżynierów Budownictwa, co gwarantuje najwyższą jakość naszych usług i pełne bezpieczeństwo realizowanych projektów.</p>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-content">
+                                <i class="fas fa-award stat-icon"></i>
+                                <div class="stat-number">32</div>
+                            </div>
+                            <div class="stat-label">Lata doświadczenia</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-content">
+                                <i class="fas fa-building stat-icon"></i>
+                                <div class="stat-number">10k+</div>
+                            </div>
+                            <div class="stat-label">Produktów w ofercie</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-content">
+                                <i class="fas fa-users stat-icon"></i>
+                                <div class="stat-number">500+</div>
+                            </div>
+                            <div class="stat-label">Zadowolonych klientów</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-content">
+                                <i class="fas fa-star stat-icon"></i>
+                                <div class="stat-number">100%</div>
+                            </div>
+                            <div class="stat-label">Gwarancja jakości</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profesjonalne instalacje MONTER">
+                    </div>
+                    <div class="floating-card">
+                        <div class="floating-card-content">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <h4>Profesjonalny serwis</h4>
+                                <p>24/7 wsparcie techniczne</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-badge">Nasze usługi</div>
+                <h2>
+                    Kompleksowe 
+                    <span class="gradient-text">rozwiązania</span>
+                </h2>
+                <p>Od projektowania po serwis - oferujemy pełen zakres usług instalacyjnych dostosowanych do Twoich potrzeb</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>Klimatyzacja</h3>
+                    <p>Profesjonalny montaż, serwis i konserwacja systemów klimatyzacyjnych. Oferujemy najnowocześniejsze rozwiązania dla maksymalnego komfortu.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon orange">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Centralne Ogrzewanie</h3>
+                    <p>Kompleksowe instalacje CO, kotłownie, piece gazowe i olejowe. Modernizacja i optymalizacja istniejących systemów grzewczych.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon indigo">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Instalacje Sanitarne</h3>
+                    <p>Montaż instalacji wodno-kanalizacyjnych, wodociągowych. Kompleksowe remonty łazienek i kuchni według najnowszych trendów.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon teal">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Wentylacja</h3>
+                    <p>Systemy wentylacji mechanicznej i grawitacyjnej. Rekuperacja i oczyszczanie powietrza dla zdrowszego środowiska.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon yellow">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Energia Solarna</h3>
+                    <p>Instalacje fotowoltaiczne i kolektory słoneczne. Inwestuj w przyszłość z ekologicznymi źródłami energii.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon purple">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Instalacje Gazowe</h3>
+                    <p>Bezpieczne instalacje gazowe, podłączenia urządzeń i profesjonalne przeglądy techniczne zgodnie z normami.</p>
+                    <div class="service-link">
+                        <span>Dowiedz się więcej</span>
+                        <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-badge">Portfolio</div>
+                <h2>
+                    Nasze 
+                    <span class="gradient-text">realizacje</span>
+                </h2>
+                <p>Galeria wybranych projektów, które z dumą zrealizowaliśmy dla naszych klientów</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nowoczesna klimatyzacja">
+                    <div class="portfolio-overlay">
+                        <span>Klimatyzacja VRV w biurowcu</span>
+                    </div>
+                    <div class="portfolio-overlay-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kotłownia gazowa">
+                    <div class="portfolio-overlay">
+                        <span>Nowoczesna kotłownia</span>
+                    </div>
+                    <div class="portfolio-overlay-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Designerska łazienka">
+                    <div class="portfolio-overlay">
+                        <span>Designerska łazienka</span>
+                    </div>
+                    <div class="portfolio-overlay-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instalacja fotowoltaiczna">
+                    <div class="portfolio-overlay">
+                        <span>Instalacja PV 15kWp</span>
+                    </div>
+                    <div class="portfolio-overlay-icon">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <div class="section-badge">Kontakt</div>
+                <h2>
+                    Skontaktuj się 
+                    <span class="gradient-text">z nami</span>
+                </h2>
+                <p>Gotowi na rozmowę o Twoim projekcie? Skontaktuj się z nami już dziś!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Napisz do nas</h3>
+                    <div style="margin-bottom: 2rem;">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Imię i nazwisko</label>
+                                <input type="text" id="contactName" placeholder="Jak mamy się do Ciebie zwracać?">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="contactEmail" placeholder="twoj@email.pl">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" id="contactPhone" placeholder="+48 123 456 789">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Temat</label>
+                            <input type="text" id="contactSubject" placeholder="Czego dotyczy Twoja wiadomość?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Wiadomość</label>
+                            <textarea rows="4" id="contactMessage" placeholder="Opisz swój projekt lub zadaj pytanie..." style="resize: none;"></textarea>
+                        </div>
+                        
+                        <button onclick="sendEmail()" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Wyślij wiadomość</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon blue">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Siedziba firmy</h4>
+                            <p>32-700 Bochnia<br>ul. Matejki 6</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon purple">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Hurtownia i magazyn</h4>
+                            <p>32-700 Bochnia<br>ul. Kazimierza Wielkiego 55</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon green">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefon/Fax</h4>
+                            <p>014 611 83 11</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon orange">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>biuro@monterbochnia.pl</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon teal">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Godziny otwarcia</h4>
+                            <p>Pon-Pt: 8:00-17:00<br>Sobota: 8:00-13:00</p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.3838883431853!2d20.42943361569838!3d49.969451279404915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473dc6ac8b0c4b27%3A0x4b0c8b27ac6dc73!2sMatejki%206%2C%2032-700%20Bochnia%2C%20Poland!5e0!3m2!1sen!2spl!4v1639147200000!5m2!1sen!2spl" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MONTER</h3>
+                    <p>Firma Usługowo-Handlowa "MONTER"<br>Artur Kasprzyk</p>
+                    <p>NIP: 8681001541<br>REGON: 8524603</p>
+                    <p>Członek Małopolskiej OIIB<br>Nr MAP/IS/1772/03</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Nasze usługi</h3>
+                    <p><a href="#services">Klimatyzacja i chłodnictwo</a></p>
+                    <p><a href="#services">Centralne ogrzewanie</a></p>
+                    <p><a href="#services">Instalacje sanitarne</a></p>
+                    <p><a href="#services">Wentylacja i rekuperacja</a></p>
+                    <p><a href="#services">Energia solarna i PV</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>ul. Matejki 6<br>32-700 Bochnia</p>
+                    <p>Tel/Fax: 014 611 83 11</p>
+                    <p>biuro@monterbochnia.pl</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Godziny pracy</h3>
+                    <p><strong>Poniedziałek - Piątek</strong><br>8:00 - 17:00</p>
+                    <p><strong>Sobota</strong><br>8:00 - 13:00</p>
+                    <p><strong>Niedziela</strong><br>Zamknięte</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MONTER - Firma Usługowo-Handlowa. Wszystkie prawa zastrzeżone. Realizacja: nowoczesne technologie web.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Button -->
+    <a href="tel:+48146118311" class="call-button">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        function sendEmail() {
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const subject = document.getElementById('contactSubject').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            const mailtoLink = `mailto:biuro@monterbochnia.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Imię i nazwisko: ${name}\nEmail: ${email}\nTelefon: ${phone}\n\nWiadomość:\n${message}`)}`;
+            window.location.href = mailtoLink;
+            
+            alert('Dziękujemy za wiadomość! Otworzy się teraz Twój program pocztowy.');
+            
+            // Reset form
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactSubject').value = '';
+            document.getElementById('contactMessage').value = '';
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and other elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.service-card, .portfolio-item, .contact-item, .stat').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px) scale(0.9)';
+                el.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                el.style.transitionDelay = (index * 0.1) + 's';
+                observer.observe(el);
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
